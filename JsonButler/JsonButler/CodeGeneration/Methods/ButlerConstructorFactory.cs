@@ -1,6 +1,4 @@
-﻿using Andeart.JsonButler.CodeGeneration;
-using Andeart.JsonButler.CodeGeneration.Classes;
-using Andeart.JsonButler.CodeGeneration.Methods;
+﻿using Andeart.JsonButler.CodeGeneration.Classes;
 
 
 

@@ -28,7 +28,7 @@ namespace Andeart.JsonButler.CodeGeneration
             // Add the class to the namespace.
             bNamespace.AddClass (bClass);
 
-            // Add any buffered additional classes to the namespace.
+            // Add created classes (dependencies) to the namespace.
             bNamespace.AddClasses (bClass.Dependencies);
 
             compileUnit = compileUnit.AddMembers (bNamespace.Info);
