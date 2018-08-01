@@ -1,9 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
-
-
-namespace Andeart.JsonButler.CodeGeneration.Namespaces
+﻿namespace Andeart.JsonButler.CodeGeneration.Namespaces
 {
 
     internal class ButlerNamespaceFactory
