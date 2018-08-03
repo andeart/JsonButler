@@ -10,9 +10,9 @@ using Newtonsoft.Json.Linq;
 namespace Andeart.JsonButler.CodeGeneration
 {
 
-    public class ButlerCsFile
+    public class ButlerCodeGenerator
     {
-        public string GenerateCodeFile (string jsonText)
+        public static string GenerateCodeFile (string jsonText)
         {
             CompilationUnitSyntax compileUnit = SyntaxFactory.CompilationUnit ();
             compileUnit = compileUnit.AddUsings (SyntaxFactory.UsingDirective (SyntaxFactory.ParseName ("System")));

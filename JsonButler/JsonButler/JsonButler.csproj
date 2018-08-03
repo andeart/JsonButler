@@ -64,7 +64,7 @@
     <Compile Include="CodeGeneration\Classes\ButlerClassFactory.cs" />
     <Compile Include="CodeGeneration\Methods\ButlerConstructor.cs" />
     <Compile Include="CodeGeneration\Methods\ButlerConstructorFactory.cs" />
-    <Compile Include="CodeGeneration\ButlerCsFile.cs" />
+    <Compile Include="CodeGeneration\ButlerCodeGenerator.cs" />
     <Compile Include="CodeGeneration\Namespaces\ButlerNamespace.cs" />
     <Compile Include="CodeGeneration\Namespaces\ButlerNamespaceFactory.cs" />
     <Compile Include="CodeGeneration\Properties\ButlerProperty.cs" />
