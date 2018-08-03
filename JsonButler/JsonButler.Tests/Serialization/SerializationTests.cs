@@ -92,6 +92,15 @@ namespace JsonButler.Tests.Serialization
             Assert.AreEqual (expected, serialized, errorMessage);
         }
 
+        [TestMethod]
+        public void SerializeType_NoJsonPropertyAttribute_PropertySerialized ()
+        {
+            string serialized = ButlerSerializer.SerializeType<ButlerTestClass4> ();
+            const string expected = ButlerTestClass4.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
+        }
+
 
         private class ButlerTestClass0
         {
@@ -160,6 +169,20 @@ namespace JsonButler.Tests.Serialization
             {
                 Up = up;
                 Never = never;
+            }
+        }
+
+
+        public class ButlerTestClass4
+        {
+            public const string ExpectedSerialized = "{\"Gonna\":false}";
+
+            public bool Gonna { get; }
+
+            [JsonConstructor]
+            public ButlerTestClass4 (bool gonna)
+            {
+                Gonna = gonna;
             }
         }
     }
