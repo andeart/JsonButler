@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace JsonButler.Creations
 {
-    class ButlerFoo
+    public class ButlerFoo
     {
         [JsonProperty("name")]
         public string Name
@@ -43,7 +43,7 @@ namespace JsonButler.Creations
         }
     }
 
-    class NestedType
+    public class NestedType
     {
         [JsonProperty("super_nested_type")]
         public SuperNestedType SuperNestedType
@@ -59,19 +59,19 @@ namespace JsonButler.Creations
         }
     }
 
-    class SuperNestedType
+    public class SuperNestedType
     {
         [JsonProperty("id")]
-        public float TypeId
+        public float Id
         {
             get;
             private set;
         }
 
         [JsonConstructor]
-        SuperNestedType(float typeId)
+        SuperNestedType(float id)
         {
-            TypeId = typeId;
+            Id = id;
         }
     }
 }
