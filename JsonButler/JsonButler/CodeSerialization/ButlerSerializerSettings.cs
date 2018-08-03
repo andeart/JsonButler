@@ -1,21 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
+
+
 
 namespace Andeart.JsonButler.CodeSerialization
 {
+
     public class ButlerSerializerSettings
     {
-        public Type[] PreferredConstructorTypes { get; set; }
+        public Assembly RootCallingAssembly { get; }
 
-        public Assembly RootCallingAssembly { get; set; }
+        public Type[] PreferredAttributeTypesOnConstructor { get; set; }
+
+        public JsonSerializerSettings JsonSerializerSettings { get; set; }
 
         public ButlerSerializerSettings (Assembly rootCallingAssembly)
         {
             RootCallingAssembly = rootCallingAssembly;
         }
     }
+
 }
