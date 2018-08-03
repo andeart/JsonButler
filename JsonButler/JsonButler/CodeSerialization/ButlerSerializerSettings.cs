@@ -21,6 +21,10 @@ namespace Andeart.JsonButler.CodeSerialization
         {
             RootCallingAssembly = rootCallingAssembly;
             PreferredAttributeTypesOnConstructor = _defaultPreferredAttributeTypesOnConstructor;
+
+            JsonSerializerSettings = new JsonSerializerSettings ();
+            JsonSerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            JsonSerializerSettings.Formatting = Formatting.None;
         }
     }
 
