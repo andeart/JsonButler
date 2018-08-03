@@ -26,6 +26,25 @@ namespace JsonButler.Creations
             private set;
         }
 
+        [JsonProperty("new_type")]
+        public NewType NewType
+        {
+            get;
+            private set;
+        }
+
+        [JsonConstructor]
+        ButlerFoo(string name, string[] lines, int winningNumber, NewType newType)
+        {
+            Name = name;
+            Lines = lines;
+            WinningNumber = winningNumber;
+            NewType = newType;
+        }
+    }
+
+    public class NewType
+    {
         [JsonProperty("nested_type")]
         public NestedType NestedType
         {
@@ -34,32 +53,13 @@ namespace JsonButler.Creations
         }
 
         [JsonConstructor]
-        ButlerFoo(string name, string[] lines, int winningNumber, NestedType nestedType)
+        NewType(NestedType nestedType)
         {
-            Name = name;
-            Lines = lines;
-            WinningNumber = winningNumber;
             NestedType = nestedType;
         }
     }
 
     public class NestedType
-    {
-        [JsonProperty("super_nested_type")]
-        public SuperNestedType SuperNestedType
-        {
-            get;
-            private set;
-        }
-
-        [JsonConstructor]
-        NestedType(SuperNestedType superNestedType)
-        {
-            SuperNestedType = superNestedType;
-        }
-    }
-
-    public class SuperNestedType
     {
         [JsonProperty("id")]
         public float Id
@@ -69,7 +69,7 @@ namespace JsonButler.Creations
         }
 
         [JsonConstructor]
-        SuperNestedType(float id)
+        NestedType(float id)
         {
             Id = id;
         }

@@ -7,8 +7,8 @@
     "And desert you"
   ],
   "winning_number": 42,
-  "nested_type": {
-    "super_nested_type": {
+  "new_type": {
+    "nested_type": {
       "id": 3.14
     }
   }
