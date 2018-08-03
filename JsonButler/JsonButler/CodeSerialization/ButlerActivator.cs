@@ -67,7 +67,7 @@ namespace Andeart.JsonButler.CodeSerialization
                 return Activator.CreateInstance (type);
             }
 
-            return type.IsArray ? new object[0] : null;
+            return type.IsArray ? Activator.CreateInstance (type, 0) : null;
         }
     }
 
