@@ -58,10 +58,17 @@ namespace JsonButler.Tests.Serialization
         }
 
         [TestMethod]
-        public void SerializeType_JsonIgnoredProperty_Serialized ()
+        public void SerializeType_JsonIgnoredProperty_PropertyIgnored ()
         {
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass1> ();
             Assert.AreEqual (serialized, ButlerTestClass1.ExpectedSerialized);
+        }
+
+        [TestMethod]
+        public void SerializeType_JsonConstructorAttribute_ConstructorRespected ()
+        {
+            string serialized = ButlerSerializer.SerializeType<ButlerTestClass2> ();
+            Assert.AreEqual (serialized, ButlerTestClass2.ExpectedSerialized);
         }
 
 
@@ -94,6 +101,26 @@ namespace JsonButler.Tests.Serialization
             public ButlerTestClass1 (int gonna)
             {
                 Gonna = gonna;
+            }
+        }
+
+
+        public class ButlerTestClass2
+        {
+            public const string ExpectedSerialized = "{\"you\":42}";
+
+            [JsonProperty ("you")]
+            public int You { get; private set; }
+
+            public ButlerTestClass2 (float you)
+            {
+                You = 7;
+            }
+
+            [JsonConstructor]
+            public ButlerTestClass2 (string you)
+            {
+                You = you?.Length ?? 42;
             }
         }
     }
