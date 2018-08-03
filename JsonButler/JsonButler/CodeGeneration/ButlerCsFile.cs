@@ -13,13 +13,12 @@ namespace Andeart.JsonButler.CodeGeneration
 
     public class ButlerCsFile
     {
-        public void CreateCode (string jsonText)
+        public string GenerateCodeFile (string jsonText)
         {
             CompilationUnitSyntax compileUnit = SyntaxFactory.CompilationUnit ();
             compileUnit = compileUnit.AddUsings (SyntaxFactory.UsingDirective (SyntaxFactory.ParseName ("System")));
             compileUnit = compileUnit.AddUsings (SyntaxFactory.UsingDirective (SyntaxFactory.ParseName ("Newtonsoft.Json")));
 
-            //NamespaceDeclarationSyntax codeNamespace = SyntaxFactory.NamespaceDeclaration (SyntaxFactory.ParseName ("JsonButler.Creations"));
             ButlerNamespace bNamespace = ButlerNamespaceFactory.Create ("JsonButler.Creations");
 
             JToken jToken = JToken.Parse (jsonText);
@@ -35,8 +34,7 @@ namespace Andeart.JsonButler.CodeGeneration
             compileUnit = compileUnit.NormalizeWhitespace ();
 
             string code = compileUnit.ToFullString ();
-
-            Clipboard.SetText (code);
+            return code;
         }
     }
 
