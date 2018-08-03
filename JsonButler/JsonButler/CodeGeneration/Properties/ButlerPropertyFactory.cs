@@ -23,19 +23,21 @@ namespace Andeart.JsonButler.CodeGeneration.Properties
 
             // Create property from type.
             bool requiresNewClass = JsonUtilities.GetTypeFrom (jProperty.Value, out string typeName);
+
             string propertyId = jProperty.Name;
-            string propertyName = jProperty.Path.ToPascalCase ();
-            ButlerProperty bProperty = new ButlerProperty (propertyName, propertyId, typeName);
+            string propertyName = propertyId.ToPascalCase ();
 
             // Create additional type if needed.
             List<ButlerClass> dependencies = new List<ButlerClass> ();
             if (requiresNewClass)
             {
+                typeName = propertyName;
                 ButlerClass dependency = ButlerClassFactory.Create (typeName, jProperty.Path, jProperty.Value);
                 dependencies.Add (dependency);
                 dependencies.AddRange (dependency.Dependencies);
             }
 
+            ButlerProperty bProperty = new ButlerProperty (propertyName, propertyId, typeName);
             bProperty.AddDependencyRange (dependencies);
 
             return bProperty;

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Andeart.CaseConversion;
 using Newtonsoft.Json.Linq;
 
 
@@ -42,7 +41,7 @@ namespace Andeart.JsonButler.Utilities
 
             if (tokenType == JTokenType.Object)
             {
-                type = jToken.Path.ToPascalCase ();
+                // Don't bother setting the type here. Type name generated is based on owner property.
                 return true;
             }
 
