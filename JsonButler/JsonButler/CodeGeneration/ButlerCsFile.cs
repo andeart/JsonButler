@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using Andeart.JsonButler.CodeGeneration.Classes;
+﻿using Andeart.JsonButler.CodeGeneration.Classes;
 using Andeart.JsonButler.CodeGeneration.Namespaces;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
