@@ -57,6 +57,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\TestUtilities.cs" />
     <None Include="Resources\ButlerCs0.cs" />
     <Compile Include="Serialization\SerializationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
