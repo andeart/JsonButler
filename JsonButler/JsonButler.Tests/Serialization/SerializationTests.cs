@@ -23,14 +23,18 @@ namespace JsonButler.Tests.Serialization
             serializerSettings.JsonSerializerSettings = jsonSerializerSettings;
 
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> (serializerSettings);
-            Assert.AreEqual (serialized, ButlerTestClass0.ExpectedSerialized);
+            const string expected = ButlerTestClass0.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
         }
 
         [TestMethod]
         public void SerializeType_NoButlerSerializerSettings_Serialized ()
         {
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> ();
-            Assert.AreEqual (serialized, ButlerTestClass0.ExpectedSerialized);
+            const string expected = ButlerTestClass0.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
         }
 
         [TestMethod]
@@ -44,7 +48,9 @@ namespace JsonButler.Tests.Serialization
             serializerSettings.JsonSerializerSettings = jsonSerializerSettings;
 
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> (serializerSettings);
-            Assert.AreEqual (serialized, ButlerTestClass0.ExpectedSerialized);
+            const string expected = ButlerTestClass0.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
         }
 
         [TestMethod]
@@ -54,21 +60,36 @@ namespace JsonButler.Tests.Serialization
             serializerSettings.PreferredAttributeTypesOnConstructor = new[] { typeof(JsonConstructorAttribute) };
 
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> (serializerSettings);
-            Assert.AreEqual (serialized, ButlerTestClass0.ExpectedSerialized);
+            const string expected = ButlerTestClass0.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
         }
 
         [TestMethod]
         public void SerializeType_JsonIgnoredProperty_PropertyIgnored ()
         {
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass1> ();
-            Assert.AreEqual (serialized, ButlerTestClass1.ExpectedSerialized);
+            const string expected = ButlerTestClass1.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
         }
 
         [TestMethod]
         public void SerializeType_JsonConstructorAttribute_ConstructorRespected ()
         {
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass2> ();
-            Assert.AreEqual (serialized, ButlerTestClass2.ExpectedSerialized);
+            const string expected = ButlerTestClass2.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
+        }
+
+        [TestMethod]
+        public void SerializeType_ArrayProperty_SerializedAsArray ()
+        {
+            string serialized = ButlerSerializer.SerializeType<ButlerTestClass3> ();
+            const string expected = ButlerTestClass3.ExpectedSerialized;
+            string errorMessage = $"Expected: {expected}; Actual: {serialized}";
+            Assert.AreEqual (expected, serialized, errorMessage);
         }
 
 
@@ -121,6 +142,24 @@ namespace JsonButler.Tests.Serialization
             public ButlerTestClass2 (string you)
             {
                 You = you?.Length ?? 42;
+            }
+        }
+
+
+        public class ButlerTestClass3
+        {
+            public const string ExpectedSerialized = "{\"up\":[],\"never\":[]}";
+
+            [JsonProperty ("up")]
+            public int[] Up { get; private set; }
+
+            [JsonProperty ("never")]
+            public string[] Never { get; private set; }
+
+            public ButlerTestClass3 (int[] up, string[] never)
+            {
+                Up = up;
+                Never = never;
             }
         }
     }
