@@ -56,7 +56,8 @@ namespace Andeart.JsonButler.CodeSerialization
                 parameterObjects[i] = CreateInstance (parameterType, settings);
             }
 
-            return Activator.CreateInstance (type, parameterObjects);
+            object instance = constructorInfo.Invoke (parameterObjects);
+            return instance;
         }
 
         private static object CreateDefaultInstance (Type type)
