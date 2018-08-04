@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 
 
@@ -7,27 +8,26 @@ namespace Andeart.JsonButler.CodeSerialization
 
     public class ButlerSerializer
     {
-        public static void SerializeType<T> ()
+        public static string SerializeType<T> ()
         {
-            SerializeType<T> (new ButlerSerializerSettings (typeof(T).Assembly));
+            return SerializeType (typeof(T));
         }
 
-        public static void SerializeType<T> (ButlerSerializerSettings settings) { }
-
-        private static object CreatePrimitiveObject<T> ()
+        public static string SerializeType<T> (ButlerSerializerSettings settings)
         {
-            Type type = typeof(T);
-            return CreatePrimitiveObject (type);
+            return SerializeType (typeof(T), settings);
         }
 
-        private static object CreatePrimitiveObject (Type type)
+        public static string SerializeType (Type type)
         {
-            if (type.IsValueType || type.IsPrimitive)
-            {
-                return Activator.CreateInstance (type);
-            }
+            return SerializeType (type, new ButlerSerializerSettings (type.Assembly));
+        }
 
-            return type.IsArray ? new object[0] : null;
+        public static string SerializeType (Type type, ButlerSerializerSettings settings)
+        {
+            object instance = ButlerActivator.CreateInstance (type, settings);
+            string instanceSerialized = JsonConvert.SerializeObject (instance, settings.JsonSerializerSettings);
+            return instanceSerialized;
         }
     }
 

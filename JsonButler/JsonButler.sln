@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonButler", "JsonButler\JsonButler.csproj", "{322ECCB4-5E68-4051-AE27-43E962EA014F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonButler.Tests", "JsonButler.Tests\JsonButler.Tests.csproj", "{C4A42D52-7CEC-41BC-BADD-3B71C49BABAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{322ECCB4-5E68-4051-AE27-43E962EA014F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{322ECCB4-5E68-4051-AE27-43E962EA014F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{322ECCB4-5E68-4051-AE27-43E962EA014F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A42D52-7CEC-41BC-BADD-3B71C49BABAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A42D52-7CEC-41BC-BADD-3B71C49BABAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A42D52-7CEC-41BC-BADD-3B71C49BABAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A42D52-7CEC-41BC-BADD-3B71C49BABAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

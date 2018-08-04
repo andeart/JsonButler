@@ -13,6 +13,7 @@ namespace Andeart.JsonButler.CodeGeneration.Classes
         public static ButlerClass Create (string className, string path, JToken jToken)
         {
             ButlerClass bClass = new ButlerClass (className, path);
+            bClass.SetAccessibility (ButlerAccessibility.Public);
 
             foreach (JToken childToken in jToken.Children ())
             {
