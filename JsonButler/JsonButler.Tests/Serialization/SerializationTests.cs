@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 
 
-namespace JsonButler.Tests.Serialization
+namespace Andeart.JsonButler.Tests.Serialization
 {
 
     [TestClass]

@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace JsonButler.Creations
+namespace Andeart.JsonButler.Creations
 {
     public class ButlerFoo
     {
