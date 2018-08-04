@@ -56,7 +56,6 @@
     <Reference Include="System.Text.Encoding.CodePages, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encoding.CodePages.4.3.0\lib\net46\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeGeneration\Core\ButlerAccessibility.cs" />
@@ -65,15 +64,18 @@
     <Compile Include="CodeGeneration\Classes\ButlerClassFactory.cs" />
     <Compile Include="CodeGeneration\Methods\ButlerConstructor.cs" />
     <Compile Include="CodeGeneration\Methods\ButlerConstructorFactory.cs" />
-    <Compile Include="CodeGeneration\ButlerCsFile.cs" />
+    <Compile Include="CodeGeneration\ButlerCodeGenerator.cs" />
     <Compile Include="CodeGeneration\Namespaces\ButlerNamespace.cs" />
     <Compile Include="CodeGeneration\Namespaces\ButlerNamespaceFactory.cs" />
     <Compile Include="CodeGeneration\Properties\ButlerProperty.cs" />
     <Compile Include="CodeGeneration\Properties\ButlerPropertyFactory.cs" />
+    <Compile Include="CodeSerialization\ButlerActivator.cs" />
     <Compile Include="CodeSerialization\ButlerSerializer.cs" />
     <Compile Include="CodeSerialization\ButlerSerializerSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\CollectionUtilities.cs" />
     <Compile Include="Utilities\JsonUtilities.cs" />
+    <Compile Include="Utilities\ReflectionUtilities.cs" />
     <Compile Include="Utilities\RoslynUtilities.cs" />
   </ItemGroup>
   <ItemGroup>

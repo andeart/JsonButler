@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using Andeart.JsonButler.CodeGeneration.Classes;
+﻿using Andeart.JsonButler.CodeGeneration.Classes;
 using Andeart.JsonButler.CodeGeneration.Namespaces;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -11,9 +10,9 @@ using Newtonsoft.Json.Linq;
 namespace Andeart.JsonButler.CodeGeneration
 {
 
-    public class ButlerCsFile
+    public class ButlerCodeGenerator
     {
-        public string GenerateCodeFile (string jsonText)
+        public static string GenerateCodeFile (string jsonText)
         {
             CompilationUnitSyntax compileUnit = SyntaxFactory.CompilationUnit ();
             compileUnit = compileUnit.AddUsings (SyntaxFactory.UsingDirective (SyntaxFactory.ParseName ("System")));

@@ -1,0 +1,15 @@
+{
+  "name": "Rick Astley",
+  "lines": [
+    "Never gonna give you up",
+    "Never gonna let you down",
+    "Never gonna run around",
+    "And desert you"
+  ],
+  "winning_number": 42,
+  "new_type": {
+    "nested_type": {
+      "id": 3.14
+    }
+  }
+}
