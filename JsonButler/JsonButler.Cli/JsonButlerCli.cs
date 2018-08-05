@@ -19,20 +19,7 @@ namespace Andeart.JsonButler.Cli
 
         private static void HandleParseError (IEnumerable<Error> errors)
         {
-            foreach (Error error in errors)
-            {
-                HandleParseError (error);
-            }
-        }
-
-        private static void HandleParseError (Error error)
-        {
-            if (error is VersionRequestedError || error is HelpRequestedError)
-            {
-                return;
-            }
-
-            Console.WriteLine ($"\nERROR: {error}\n");
+            // TODO: Handle errors that require further guidance.
         }
     }
 
