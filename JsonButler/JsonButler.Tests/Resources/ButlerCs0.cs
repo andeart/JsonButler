@@ -1,9 +1,9 @@
 using System;
 using Newtonsoft.Json;
 
-namespace Andeart.JsonButler.Creations
+namespace JsonButler.Tests.Results
 {
-    public class ButlerFoo
+    public class ComplexDataPayload
     {
         [JsonProperty("name")]
         public string Name
@@ -34,7 +34,7 @@ namespace Andeart.JsonButler.Creations
         }
 
         [JsonConstructor]
-        ButlerFoo(string name, string[] lines, int winningNumber, NewType newType)
+        ComplexDataPayload(string name, string[] lines, int winningNumber, NewType newType)
         {
             Name = name;
             Lines = lines;
