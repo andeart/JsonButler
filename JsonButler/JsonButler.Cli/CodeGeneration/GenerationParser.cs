@@ -35,7 +35,7 @@ namespace Andeart.JsonButler.Cli.CodeGeneration
             }
 
             // Handle from file if inputFile argument was set.
-            if (inputFile.Length > 0)
+            if (!string.IsNullOrEmpty (inputFile))
             {
                 HandleFromFile (inputFile, outputFile);
                 return;
