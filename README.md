@@ -5,19 +5,40 @@ It also lets you serialize a known C# type to JSON (with default values as much 
 
 
 ## Code Generation
-Example:
+Example usage with Butler executable:
+```bash
+# JsonButler can parse json text-snippets directly...
+butler generate -j {"indices":[2,3,5,7]}
+
+# ...or can instead parse the contents of a file.
+butler generate -f "response_payload.json"
+
+# By default, the generated C# code is copied directly to the clipboard.
+# This can be overriden by setting an output file.
+butler generate -f "response_payload.json" -o "ResponseModel.cs"
+```
+
+Example usage with C# library:
 ```cs
-// Valid JSON text. This can be from a file, database/server response, etc.
-string input = Resources.ButlerJsonContent;
+// JsonButler can parse json text-snippets directly...
+string input = myJsonText;
+
+// ...or can instead parse the contents of a file.
+input = ButlerReader.ReadAllText (myJsonFilePath);
 
 // Generates C# code (i.e. contents of potential C# file).
-string generatedCsCode = ButlerCodeGenerator.GenerateCodeFile (input);  // Generate
-Console.WriteLine(generatedCsCode);
+string generatedCsCode = ButlerCodeGenerator.GenerateCodeFile (input);
+
+// JsonButler can either copy this text to the clipboard...
+ButlerWriter.SetClipboardText (generatedCode);
+
+// ...or write it to a file.
+ButlerWriter.WriteAllText (outputFile, generatedCode);
 ```
 
 
 ## Serialization
-Example:
+Example usage with C# library:
 ```cs
 // Simplest usage. Settings available.
 string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> ();
