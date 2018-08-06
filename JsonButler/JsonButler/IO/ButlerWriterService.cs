@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace Andeart.JsonButler.IO
 {
 
-    public class ButlerWriter
+    internal static class ButlerWriterService
     {
         public static void WriteAllText (string filePath, string contents)
         {

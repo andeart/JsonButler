@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 namespace Andeart.JsonButler.CodeGeneration.Classes
 {
 
-    internal class ButlerClassFactory
+    internal static class ButlerClassFactory
     {
         public static ButlerClass Create (string className, string path, JToken jToken)
         {
@@ -26,7 +26,7 @@ namespace Andeart.JsonButler.CodeGeneration.Classes
                 bClass.AddProperty (bProperty);
             }
 
-            ButlerConstructor bConstructor = new ButlerConstructor (bClass);
+            ButlerConstructor bConstructor = ButlerConstructorFactory.Create (bClass);
             bConstructor.AddPropertyParameterRange (bClass.Properties);
             bConstructor.AddAttribute ("JsonConstructor");
 

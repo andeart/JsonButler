@@ -14,7 +14,11 @@ namespace Andeart.JsonButler.Cli
         [STAThread]
         private static void Main (string[] args)
         {
-            Parser.Default.ParseArguments<GenerateOptions> (args).WithParsed (GenerationParser.ExecuteOptionsAndReturnExitCode).WithNotParsed (HandleParseError);
+            GenerationParser generationParser = new GenerationParser ();
+
+            ParserResult<GenerationOptions> parserResult = Parser.Default.ParseArguments<GenerationOptions> (args);
+            parserResult = parserResult.WithParsed (generationParser.ExecuteOptions);
+            parserResult = parserResult.WithNotParsed (HandleParseError);
         }
 
         private static void HandleParseError (IEnumerable<Error> errors)

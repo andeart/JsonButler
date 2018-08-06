@@ -1,4 +1,5 @@
 ﻿using System;
+using Andeart.JsonButler.Cli.Core;
 using Andeart.JsonButler.IO;
 
 
@@ -6,9 +7,9 @@ using Andeart.JsonButler.IO;
 namespace Andeart.JsonButler.Cli.CodeGeneration
 {
 
-    internal class GenerationParser
+    internal class GenerationParser : IParser<GenerationOptions>
     {
-        public static void ExecuteOptionsAndReturnExitCode (GenerateOptions options)
+        public void ExecuteOptions (GenerationOptions options)
         {
             string inputFile = options.InputFile;
             string inputJson = options.InputJson;
@@ -35,7 +36,7 @@ namespace Andeart.JsonButler.Cli.CodeGeneration
             }
 
             // Handle from file if inputFile argument was set.
-            if (inputFile.Length > 0)
+            if (!string.IsNullOrEmpty (inputFile))
             {
                 HandleFromFile (inputFile, outputFile);
                 return;
@@ -47,7 +48,7 @@ namespace Andeart.JsonButler.Cli.CodeGeneration
 
         private static void HandleFromFile (string inputFile, string outputFile)
         {
-            string fileContents = ButlerReader.ReadAllText (inputFile);
+            string fileContents = ButlerReaderService.ReadAllText (inputFile);
             HandleFromJson (fileContents, outputFile);
         }
 
@@ -55,21 +56,21 @@ namespace Andeart.JsonButler.Cli.CodeGeneration
         {
             if (string.IsNullOrEmpty (outputFile))
             {
-                Generator.Generate (inputJson);
+                GenerationUtility.Generate (inputJson);
                 Console.WriteLine ("\nCode generation complete. Contents copied to clipboard.");
                 return;
             }
 
             if (ConfirmFileWrite (outputFile))
             {
-                Generator.Generate (inputJson, outputFile);
-                Console.WriteLine($"\nCode generation complete. Contents written to {outputFile}");
+                GenerationUtility.Generate (inputJson, outputFile);
+                Console.WriteLine ($"\nCode generation complete. Contents written to {outputFile}");
             }
         }
 
         private static bool ConfirmFileWrite (string outputFile)
         {
-            if (ButlerReader.Exists (outputFile))
+            if (ButlerReaderService.Exists (outputFile))
             {
                 Console.WriteLine ($"\nFile already exists at {outputFile}. Overwriting.");
                 return true;
