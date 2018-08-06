@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace Andeart.JsonButler.CodeSerialization
 {
 
-    public class ButlerSerializer
+    public static class ButlerSerializer
     {
         public static string SerializeType<T> ()
         {
