@@ -1,7 +1,7 @@
 ﻿namespace Andeart.JsonButler.CodeGeneration.Namespaces
 {
 
-    internal class ButlerNamespaceFactory
+    internal static class ButlerNamespaceFactory
     {
         public static ButlerNamespace Create (string name)
         {

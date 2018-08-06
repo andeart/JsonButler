@@ -36,6 +36,12 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>andeart.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CaseConversion, Version=1.0.0.0, Culture=neutral, PublicKeyToken=078602fa351ec290, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -79,13 +85,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeGeneration\GenerateOptions.cs" />
+    <Compile Include="CodeGeneration\GenerationOptions.cs" />
     <Compile Include="CodeGeneration\GenerationParser.cs" />
-    <Compile Include="CodeGeneration\Generator.cs" />
+    <Compile Include="CodeGeneration\GenerationUtility.cs" />
+    <Compile Include="Core\IParser.cs" />
+    <Compile Include="Core\IParserOptions.cs" />
     <Compile Include="JsonButlerCli.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="andeart.snk" />
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -95,5 +104,6 @@
       <Name>JsonButler</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

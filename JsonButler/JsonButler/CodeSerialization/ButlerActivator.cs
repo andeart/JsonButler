@@ -7,7 +7,7 @@ using Andeart.JsonButler.Utilities;
 namespace Andeart.JsonButler.CodeSerialization
 {
 
-    public class ButlerActivator
+    internal static class ButlerActivator
     {
         public static object CreateInstance<T> ()
         {

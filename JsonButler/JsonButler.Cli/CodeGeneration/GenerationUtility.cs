@@ -7,7 +7,7 @@ using Andeart.JsonButler.IO;
 namespace Andeart.JsonButler.Cli.CodeGeneration
 {
 
-    internal class Generator
+    internal class GenerationUtility
     {
         public static void Generate (string sourceJson)
         {
@@ -16,7 +16,7 @@ namespace Andeart.JsonButler.Cli.CodeGeneration
             bCode.ClassName = "MyPayload";
             bCode.SourceJson = sourceJson;
             string generatedCode = bCode.Generate ();
-            ButlerWriter.SetClipboardText (generatedCode);
+            ButlerWriterService.SetClipboardText (generatedCode);
         }
 
         public static void Generate (string sourceJson, string outputFile)
@@ -32,7 +32,7 @@ namespace Andeart.JsonButler.Cli.CodeGeneration
             bCode.ClassName = shortFileName.ToPascalCase ();
             bCode.SourceJson = sourceJson;
             string generatedCode = bCode.Generate ();
-            ButlerWriter.WriteAllText (outputFile, generatedCode);
+            ButlerWriterService.WriteAllText (outputFile, generatedCode);
         }
     }
 

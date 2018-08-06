@@ -27,7 +27,7 @@ namespace Andeart.JsonButler.Utilities
 
             if (preferredAttributeTypes.Any (IsNotAnAttribute, out Type failureType))
             {
-                throw new Exception($"Provided preferred-attribute-type {failureType} is not an Attribute type.");
+                throw new Exception ($"Provided preferred-attribute-type {failureType} is not an Attribute type.");
             }
 
             for (int i = 0; i < preferredAttributeTypes.Length; i++)

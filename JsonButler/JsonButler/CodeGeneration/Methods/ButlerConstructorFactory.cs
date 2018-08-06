@@ -5,7 +5,7 @@
 namespace Andeart.JsonButler.CodeGeneration.Methods
 {
 
-    internal class ButlerConstructorFactory
+    internal static class ButlerConstructorFactory
     {
         public static ButlerConstructor Create (ButlerClass bClass)
         {
