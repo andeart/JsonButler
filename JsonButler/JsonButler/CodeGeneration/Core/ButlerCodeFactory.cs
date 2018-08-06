@@ -1,7 +1,7 @@
 ﻿namespace Andeart.JsonButler.CodeGeneration.Core
 {
 
-    public class ButlerCodeFactory
+    public static class ButlerCodeFactory
     {
         public static ButlerCode Create ()
         {

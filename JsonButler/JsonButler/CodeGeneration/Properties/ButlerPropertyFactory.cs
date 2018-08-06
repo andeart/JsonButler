@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 namespace Andeart.JsonButler.CodeGeneration.Properties
 {
 
-    internal class ButlerPropertyFactory
+    internal static class ButlerPropertyFactory
     {
         public static ButlerProperty Create (JToken jToken)
         {
