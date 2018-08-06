@@ -1,6 +1,7 @@
 # JsonButler
-JsonButler lets you generate C# types (along with the cs files if needed) from JSON data. Nested custom types are supported.
-It also lets you serialize a known C# type to JSON (with default values as much as possible) without having to instantiate an instance of said type.
+**JsonButler** lets you:
+- Generate C# types (along with the cs files if needed) from JSON data. Also generates nested custom types if needed.
+- Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
 
 
 
@@ -11,11 +12,11 @@ Example usage with Butler executable:
 butler generate -j {"indices":[2,3,5,7]}
 
 # ...or can instead parse the contents of a file.
-butler generate -f "response_payload.json"
+butler generate -f response_payload.json
 
 # By default, the generated C# code is copied directly to the clipboard.
 # This can be overriden by setting an output file.
-butler generate -f "response_payload.json" -o "ResponseModel.cs"
+butler generate -f response_payload.json -o ResponseModel.cs
 ```
 
 Example usage with C# library:
