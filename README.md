@@ -20,7 +20,7 @@ butler generate -f response_payload.json -o ResponseModel.cs
 ```
 
 Example usage with C# library:
-```cs
+```csharp
 // JsonButler can parse json text-snippets directly...
 string input = myJsonText;
 
@@ -40,9 +40,20 @@ ButlerWriter.WriteAllText (outputFile, generatedCode);
 
 ## Serialization
 Example usage with C# library:
-```cs
-// Simplest usage. Settings available.
-string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> ();
+```csharp
+// Run JSONButler serialization with no customisation...
+string serialized = ButlerSerializer.SerializeType<MyResponsePayload> ();
+
+// ...or pass in specific serialization settings, such as limiting the scope of type generation, ...
+ButlerSerializerSettings serializerSettings = new ButlerSerializerSettings (Assembly.GetExecutingAssembly ());
+
+// ...setting constructor priorities for default object creation, ...
+serializerSettings.PreferredAttributeTypesOnConstructor = new[] { typeof(MyConstructorAttribute), typeof(ClientsConstructorAttribute) };
+
+// ... and customising the final JSON serialization.
+serializerSettings.JsonSerializerSettings = myJsonSerializerSettings;
+
+string serialized = ButlerSerializer.SerializeType<MyResponsePayload> (serializerSettings);
 ```
 
 ---
