@@ -1,4 +1,4 @@
-# ![JsonButler logo][logo] JsonButler
+# [![JsonButler logo][logo]](#) JsonButler
 **JsonButler** lets you:
 - Generate C# types (along with the cs files if needed) from JSON data. Also generates nested custom types if needed.
 - Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
@@ -62,4 +62,4 @@ string serialized = ButlerSerializer.SerializeType<MyResponsePayload> (serialize
 1. Code generation: JSON elements that are siblings and have the same property name currently create name-conflicting types.
 2. Code generation: Array elements of a custom type are not correctly represented as an array in the owner type.
 
-[logo]: https://github.com/andeart/JsonButler/blob/master/Resources/logo-v2-64.png
+[logo]: https://user-images.githubusercontent.com/6226493/44009210-0bdfe344-9e5f-11e8-8439-4c7d32b3ce75.png "JsonButler"
