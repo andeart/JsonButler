@@ -1,4 +1,9 @@
 # [![JsonButler logo][logo]](#) JsonButler
+
+**JsonButler is now available as a Visual Studio extension. [Check it out here][jsonbutler ide]!**
+
+---
+
 **JsonButler** lets you:
 - Generate C# types (along with the cs files if needed) from JSON data. Also generates nested custom types if needed.
 - Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
@@ -63,3 +68,4 @@ string serialized = ButlerSerializer.SerializeType<MyResponsePayload> (serialize
 2. Code generation: Array elements of a custom type are not correctly represented as an array in the owner type.
 
 [logo]: https://user-images.githubusercontent.com/6226493/44009210-0bdfe344-9e5f-11e8-8439-4c7d32b3ce75.png "JsonButler"
+[jsonbutler ide]: https://github.com/andeart/JsonButler-IDE "JsonButler-IDE"
