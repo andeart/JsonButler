@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <license type="file">LICENSE.md</license>
+    <projectUrl>https://github.com/andeart/JsonButler</projectUrl>
+    <iconUrl>https://user-images.githubusercontent.com/6226493/44009210-0bdfe344-9e5f-11e8-8439-4c7d32b3ce75.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Minor internal updates from 0.10.1.0</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>code-generation csharp dotnet json</tags>
+  </metadata>
+  <files>
+    <file src="..\..\LICENSE.md" target="" />
+  </files>
+</package>
