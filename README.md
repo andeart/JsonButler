@@ -8,10 +8,15 @@
 - Generate C# types (along with the cs files if needed) from JSON data. Also generates nested custom types if needed.
 - Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
 
+#### Status
+[![travis](https://img.shields.io/travis/andeart/JsonButler.svg)](https://travis-ci.org/andeart/JsonButler)<br />
+[![github-release](https://img.shields.io/github/release/andeart/Jsonbutler.svg)](https://github.com/andeart/JsonButler/releases/latest)<br/>
+[![license](https://img.shields.io/github/license/andeart/JsonButler.svg)](https://github.com/andeart/JsonButler/blob/master/LICENSE)
+
 
 
 ## Code Generation
-Example usage with Butler executable:
+Example usage with Butler CLI:
 ```bash
 # JsonButler can parse json text-snippets directly...
 butler generate -j {"indices":[2,3,5,7]}
