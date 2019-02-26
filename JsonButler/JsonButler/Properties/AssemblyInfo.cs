@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle ("JsonButler")]
+[assembly: AssemblyTitle ("Andeart.JsonButler")]
 [assembly: AssemblyDescription ("JsonButler generates C# types and files from JSON data, and serializes types to JSON without explicit object instantiation.")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Andeart")]
-[assembly: AssemblyProduct ("JsonButler")]
+[assembly: AssemblyProduct ("Andeart.JsonButler")]
 [assembly: AssemblyCopyright ("Copyright © 2019 ANURAG DEVANAPALLY")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion ("1.0.1.0")]
-[assembly: AssemblyFileVersion ("1.0.1.0")]
+[assembly: AssemblyVersion ("1.0.2.0")]
+[assembly: AssemblyFileVersion ("1.0.2.0")]
 [assembly: InternalsVisibleTo ("butler")]

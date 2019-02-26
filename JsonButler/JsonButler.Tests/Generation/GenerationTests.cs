@@ -1,9 +1,8 @@
-﻿using System;
-using Andeart.JsonButler.CodeGeneration.Core;
+﻿using Andeart.JsonButler.CodeGeneration.Core;
 using Andeart.JsonButler.Tests.Properties;
 using Andeart.JsonButler.Tests.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using System;
 
 
 namespace Andeart.JsonButler.Tests.Generation
