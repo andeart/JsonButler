@@ -1,5 +1,10 @@
 # [![JsonButler logo][logo]](#) JsonButler
 
+[![travis](https://img.shields.io/travis/andeart/JsonButler.svg)](https://travis-ci.org/andeart/JsonButler)<br />
+[![nuget-release](https://img.shields.io/nuget/v/Andeart.JsonButler.svg)](https://www.nuget.org/packages/Andeart.JsonButler)<br />
+[![github-release](https://img.shields.io/github/release/andeart/Jsonbutler.svg)](https://github.com/andeart/JsonButler/releases/latest)<br/>
+[![license](https://img.shields.io/github/license/andeart/JsonButler.svg)](https://github.com/andeart/JsonButler/blob/master/LICENSE)
+
 **JsonButler is now available as a Visual Studio extension. [Check it out here][jsonbutler ide]!**
 
 ---
@@ -7,13 +12,6 @@
 **JsonButler** lets you:
 - Generate C# types (along with the cs files if needed) from JSON data. Also generates nested custom types if needed.
 - Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
-
-#### Status
-[![travis](https://img.shields.io/travis/andeart/JsonButler.svg)](https://travis-ci.org/andeart/JsonButler)<br />
-[![github-release](https://img.shields.io/github/release/andeart/Jsonbutler.svg)](https://github.com/andeart/JsonButler/releases/latest)<br/>
-[![license](https://img.shields.io/github/license/andeart/JsonButler.svg)](https://github.com/andeart/JsonButler/blob/master/LICENSE)
-
-
 
 ## Code Generation
 Example usage with Butler CLI:
@@ -47,7 +45,6 @@ ButlerWriter.SetClipboardText (generatedCode);
 ButlerWriter.WriteAllText (outputFile, generatedCode);
 ```
 
-
 ## Serialization
 Example usage with C# library:
 ```csharp
@@ -65,6 +62,19 @@ serializerSettings.JsonSerializerSettings = myJsonSerializerSettings;
 
 string serialized = ButlerSerializer.SerializeType<MyResponsePayload> (serializerSettings);
 ```
+
+## Installation and Usage
+Recommended: Install the package via NuGet console.
+```powershell
+Install-Package Andeart.JsonButler
+```
+The CLI tool is included in the `cli` directory in the nuget package.
+
+Optionally, you can instead download [the latest release](https://github.com/andeart/JsonButler/releases/latest) from the Github Releases tab.
+
+## Feedback and Contribution
+Please feel free to send in a Pull Request, or drop me an email. Cheers!
+
 
 ---
 
