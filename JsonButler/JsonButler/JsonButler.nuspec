@@ -11,7 +11,7 @@
     <iconUrl>https://user-images.githubusercontent.com/6226493/44009210-0bdfe344-9e5f-11e8-8439-4c7d32b3ce75.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Minor internal updates from 0.10.1.0</releaseNotes>
+    <releaseNotes>Make minor internal updates; Update assembly naming</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>code-generation csharp dotnet json</tags>
   </metadata>
