@@ -1,7 +1,7 @@
 os: osx
 language: csharp
 solution: JsonButler/JsonButler.sln
-dotnet: 2.1.300
+dotnet: 2.2.104
 mono: latest
 install:
   - nuget restore JsonButler/JsonButler.sln
