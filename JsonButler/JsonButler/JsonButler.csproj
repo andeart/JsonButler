@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Andeart.JsonButler</RootNamespace>
-    <AssemblyName>JsonButler</AssemblyName>
+    <AssemblyName>Andeart.JsonButler</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -31,18 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>andeart.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CaseConversion">
-      <HintPath>References\CaseConversion.dll</HintPath>
-    </Reference>
-    <Reference Include="Costura, Version=3.1.0.0, Culture=neutral, PublicKeyToken=9919ef960d84173d, processorArchitecture=MSIL">
-      <HintPath>..\packages\Costura.Fody.3.1.0\lib\net46\Costura.dll</HintPath>
+    <Reference Include="Andeart.CaseConversions, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Andeart.CaseConversions.2.0.3\lib\net471\Andeart.CaseConversions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.0.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
