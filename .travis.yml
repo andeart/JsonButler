@@ -7,4 +7,4 @@ install:
   - nuget restore JsonButler/JsonButler.sln
 script:
   - msbuild /p:Configuration=Debug JsonButler/JsonButler.sln
-  - dotnet vstest JsonButler/JsonButler.Tests/bin/Debug/JsonButler.Tests.dll /Framework:.NETFramework,Version=v4.7.1 /InIsolation /logger:trx
+  - dotnet vstest JsonButler/JsonButler.Tests/bin/Debug/Andeart.JsonButler.Tests.dll /Framework:.NETFramework,Version=v4.7.1 /InIsolation /logger:trx
