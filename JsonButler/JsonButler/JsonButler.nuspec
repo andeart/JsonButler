@@ -11,11 +11,13 @@
     <iconUrl>https://user-images.githubusercontent.com/6226493/44009210-0bdfe344-9e5f-11e8-8439-4c7d32b3ce75.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Make minor internal updates; Update assembly naming</releaseNotes>
+    <releaseNotes>CLI tool is now included with nuget package.</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>code-generation csharp dotnet json</tags>
   </metadata>
   <files>
     <file src="..\..\LICENSE.md" target="" />
+    <file src="..\..\README.md" target="" />
+    <file src="..\JsonButler.Cli\bin\Release\butler.exe" target="cli" />
   </files>
 </package>
