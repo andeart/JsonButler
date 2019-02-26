@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using Andeart.CaseConversion;
+﻿using Andeart.CaseConversions;
 using Andeart.JsonButler.CodeGeneration.Classes;
 using Andeart.JsonButler.CodeGeneration.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-
+using System;
+using System.Collections.Generic;
 
 
 namespace Andeart.JsonButler.CodeGeneration.Methods
