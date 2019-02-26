@@ -1,8 +1,7 @@
-﻿using System.Reflection;
-using Andeart.JsonButler.CodeSerialization;
+﻿using Andeart.JsonButler.CodeSerialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-
+using System.Reflection;
 
 
 namespace Andeart.JsonButler.Tests.Serialization
@@ -15,7 +14,7 @@ namespace Andeart.JsonButler.Tests.Serialization
         public void SerializeType_SimpleCustomType_Serialized ()
         {
             ButlerSerializerSettings serializerSettings = new ButlerSerializerSettings (Assembly.GetExecutingAssembly ());
-            serializerSettings.PreferredAttributeTypesOnConstructor = new[] { typeof(JsonConstructorAttribute) };
+            serializerSettings.PreferredAttributeTypesOnConstructor = new[] {typeof(JsonConstructorAttribute)};
 
             JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings ();
             jsonSerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -57,7 +56,7 @@ namespace Andeart.JsonButler.Tests.Serialization
         public void SerializeType_NoJsonSerializerSettings_Serialized ()
         {
             ButlerSerializerSettings serializerSettings = new ButlerSerializerSettings (Assembly.GetExecutingAssembly ());
-            serializerSettings.PreferredAttributeTypesOnConstructor = new[] { typeof(JsonConstructorAttribute) };
+            serializerSettings.PreferredAttributeTypesOnConstructor = new[] {typeof(JsonConstructorAttribute)};
 
             string serialized = ButlerSerializer.SerializeType<ButlerTestClass0> (serializerSettings);
             const string expected = ButlerTestClass0.ExpectedSerialized;

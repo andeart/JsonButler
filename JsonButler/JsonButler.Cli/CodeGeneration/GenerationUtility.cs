@@ -1,7 +1,6 @@
-﻿using Andeart.CaseConversion;
+﻿using Andeart.CaseConversions;
 using Andeart.JsonButler.CodeGeneration.Core;
 using Andeart.JsonButler.IO;
-
 
 
 namespace Andeart.JsonButler.Cli.CodeGeneration

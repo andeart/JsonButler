@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Andeart.CaseConversion;
+﻿using Andeart.CaseConversions;
 using Andeart.JsonButler.CodeGeneration.Classes;
 using Andeart.JsonButler.Utilities;
 using Newtonsoft.Json.Linq;
-
+using System;
+using System.Collections.Generic;
 
 
 namespace Andeart.JsonButler.CodeGeneration.Properties
@@ -28,7 +27,7 @@ namespace Andeart.JsonButler.CodeGeneration.Properties
             string propertyName = propertyId.ToPascalCase ();
 
             // Create additional type if needed.
-            List<ButlerClass> dependencies = new List<ButlerClass> ();
+            var dependencies = new List<ButlerClass> ();
             if (requiresNewClass)
             {
                 typeName = propertyName;
