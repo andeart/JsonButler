@@ -4,5 +4,7 @@ solution: JsonButler/JsonButler.sln
 dotnet: 2.2.104
 python: 3.7
 mono: latest
+before_install:
+  - chmod a+x Scripts/*
 script:
   - Scripts/test.bat Debug true
