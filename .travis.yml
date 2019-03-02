@@ -5,4 +5,4 @@ dotnet: 2.2.104
 python: 3.7
 mono: latest
 script:
-  - Scripts/build.bat Debug true
+  - Scripts/test.bat Debug true
