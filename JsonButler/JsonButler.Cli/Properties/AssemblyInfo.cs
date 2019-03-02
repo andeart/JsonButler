@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("Andeart.JsonButler.Cli")]
-[assembly: AssemblyDescription ("JsonButler generates C# types and files from JSON data, and serializes types to JSON without explicit object instantiation.")]
+[assembly: AssemblyDescription ("CLI tool for JsonButler. JsonButler generates C# types and files from JSON data, and serializes types to JSON without explicit object instantiation.")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Andeart")]
 [assembly: AssemblyProduct ("Andeart.JsonButler.Cli")]
