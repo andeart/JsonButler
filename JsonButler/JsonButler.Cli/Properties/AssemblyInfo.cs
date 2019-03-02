@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("Andeart.JsonButler.Cli")]
-[assembly: AssemblyDescription ("JsonButler generates C# types and files from JSON data, and serializes types to JSON without explicit object instantiation.")]
+[assembly: AssemblyDescription ("CLI tool for JsonButler. JsonButler generates C# types and files from JSON data, and serializes types to JSON without explicit object instantiation.")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("Andeart")]
 [assembly: AssemblyProduct ("Andeart.JsonButler.Cli")]
@@ -22,5 +22,5 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid ("9785a0fc-d062-454a-b18c-99764683e91a")]
 
-[assembly: AssemblyVersion ("1.0.3.0")]
-[assembly: AssemblyFileVersion ("1.0.3.0")]
+[assembly: AssemblyVersion ("1.0.4.0")]
+[assembly: AssemblyFileVersion ("1.0.4.0")]
