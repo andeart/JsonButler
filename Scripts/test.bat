@@ -17,9 +17,11 @@ for /f "usebackq tokens=*" %%m in (`"%~dp0get-msBuild-path.bat"`) do (
 if "%configurationName%"=="Debug" (
     if "%runTests%" == "true" (
         dotnet vstest JsonButler/JsonButler.Tests/bin/Debug/Andeart.JsonButler.Tests.dll /Framework:.NETFramework,Version=v4.7.1 /InIsolation /logger:trx
-    ) else (
-        echo No tests were run.
+        goto finish
     )
 )
-
+:notestsrun
+echo No tests were run.
 exit /b 9
+:finish
+echo Tests were run.
