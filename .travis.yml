@@ -2,12 +2,7 @@ os: osx
 language: csharp
 solution: JsonButler/JsonButler.sln
 dotnet: 2.2.104
-python:
-  - "3.7"
+python: 3.7
 mono: latest
-install:
-  - nuget restore JsonButler/JsonButler.sln
 script:
-  - python clear_fody_refs.py
-  - msbuild /p:Configuration=Debug JsonButler/JsonButler.sln
-  - dotnet vstest JsonButler/JsonButler.Tests/bin/Debug/Andeart.JsonButler.Tests.dll /Framework:.NETFramework,Version=v4.7.1 /InIsolation /logger:trx
+  - Scripts/build.bat Debug true
