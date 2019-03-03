@@ -2,8 +2,8 @@
 
 [![travis](https://img.shields.io/travis/andeart/JsonButler.svg)](https://travis-ci.org/andeart/JsonButler)<br />
 [![nuget-release](https://img.shields.io/nuget/v/Andeart.JsonButler.svg)](https://www.nuget.org/packages/Andeart.JsonButler)<br />
+[![nuget-dls](https://img.shields.io/nuget/dt/Andeart.JsonButler.svg)](https://www.nuget.org/packages/Andeart.JsonButler)<br />
 [![github-release](https://img.shields.io/github/release/andeart/Jsonbutler.svg)](https://github.com/andeart/JsonButler/releases/latest)<br/>
-[![license](https://img.shields.io/github/license/andeart/JsonButler.svg)](https://github.com/andeart/JsonButler/blob/master/LICENSE)
 
 **JsonButler is now available as a Visual Studio extension. [Check it out here][jsonbutler ide]!**
 
@@ -14,7 +14,7 @@
 - Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
 
 ## Code Generation
-Example usage with Butler CLI:
+Example usage with Butler CLI (included in the `cli` directory in the nuget package):
 ```bash
 # JsonButler can parse json text-snippets directly...
 butler generate -j {"indices":[2,3,5,7]}
