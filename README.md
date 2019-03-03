@@ -14,7 +14,7 @@
 - Serialize a known C# type to JSON without having to instantiate an instance of said type. It drills down and uses default values as far as possible.
 
 ## Code Generation
-Example usage with Butler CLI:
+Example usage with Butler CLI (included in the `cli` directory in the nuget package):
 ```bash
 # JsonButler can parse json text-snippets directly...
 butler generate -j {"indices":[2,3,5,7]}
