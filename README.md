@@ -64,17 +64,20 @@ string serialized = ButlerSerializer.SerializeType<MyResponsePayload> (serialize
 ```
 
 ## Installation and Usage
+
+`butler.exe` for standalone CLI functionality.<br />
+`JsonButler.dll` for library usability with other projects.<br />
+
 Recommended: Install the package via NuGet console.
 ```powershell
 Install-Package Andeart.JsonButler
 ```
 The CLI tool is included in the `cli` directory in the nuget package.
 
-Optionally, you can instead download [the latest release](https://github.com/andeart/JsonButler/releases/latest) from the Github Releases tab.
+Optionally, you can instead download from [the Github Releases page](https://github.com/andeart/JsonButler/releases/latest), which contains both files.
 
 ## Feedback and Contribution
 Please feel free to send in a Pull Request, or drop me an email. Cheers!
-
 
 ---
 
