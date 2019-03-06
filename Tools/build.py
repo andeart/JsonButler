@@ -1,4 +1,5 @@
 import argparse
+import platform
 import subprocess
 import collections
 from fodycleaner import FodyCleaner
@@ -78,7 +79,9 @@ class SlnBuilder:
     def run_msbuild(self, config_name, silent = False):
         if not silent:
             print("Building solution...")
-        args = ["dotnet"]
+        args = []
+        if (platform.system() == "Windows"):
+            args.append("dotnet")
         args.append("msbuild")
         args.append(self.solution_path)
         args.append("-p:Configuration=" + config_name)
