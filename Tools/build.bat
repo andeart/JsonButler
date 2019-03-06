@@ -8,11 +8,8 @@ if not "%configurationName%"=="Release" (
 )
 
 nuget restore ./JsonButler/JsonButler.sln
-python ./Scripts/clear_fody_refs.py
-
-for /f "usebackq tokens=*" %%m in (`"%~dp0get-msBuild-path.bat"`) do (
-    call %%m /p:Configuration=%configurationName% ./JsonButler/JsonButler.sln
-)
+python ./Tools/fodycleaner.py
+dotnet msbuild ./JsonButler/JsonButler.sln -p:Configuration=%configurationName%
 
 if "%configurationName%"=="Debug" (
     if "%runTests%" == "true" (
