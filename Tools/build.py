@@ -17,8 +17,8 @@ class SlnBuilder:
         self.parser = argparse.ArgumentParser(description='Build VS solution along with project tests.')
         self.parser.add_argument("--config", "-c", choices=["Release", "Debug"], type=str, metavar="ConfigurationName", default="Debug", help="Specify the ConfigurationName to be used with MSBuild.")
         self.parser.add_argument("--tests", "-t",  action="store_true", default=False, help="Specify if tests should be run. Use it as a flag, i.e. simply add -t or --tests without additional args.")
-        self.solution_path = "./JsonButler/JsonButler.sln"
-        self.tests_path = "./JsonButler/JsonButler.Tests/bin/Debug/Andeart.JsonButler.Tests.dll"
+        self.solution_path = os.environ.get("SOLUTION_PATH")
+        self.tests_path = os.environ.get("TESTS_PATH")
 
 
     def build(self, silent = False):
