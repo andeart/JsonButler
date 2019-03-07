@@ -15,49 +15,61 @@ class SlnBuilder:
     def __init__(self):
         print("SlnBuilder\n")
         self.parser = argparse.ArgumentParser(description='Build VS solution along with project tests.')
-        self.parser.add_argument("--config", "-c", choices=["Release", "Debug"], type=str, metavar="ConfigurationName", default="Debug", help="Specify the ConfigurationName to be used with MSBuild.")
-        self.parser.add_argument("--tests", "-t",  action="store_true", default=False, help="Specify if tests should be run. Use it as a flag, i.e. simply add -t or --tests without additional args.")
-        self.solution_path = os.environ.get("SOLUTION_PATH")
-        self.tests_path = os.environ.get("TESTS_PATH")
+        self.parser.add_argument("--config", "-c", choices=["Release", "Debug"], type=str, metavar="ConfigurationName", default="Debug", help="The ConfigurationName to be used with MSBuild.")
+        self.parser.add_argument("--runtests", "-r",  action="store_true", default=False, help="Should tests be run? Use as a flag, i.e. simply add -r or --runtests without additional args.")
+        self.parser.add_argument("--slnpath", "-s", type=str, metavar="SolutionPath", default=None, help="The path to the solution to build.")
+        self.parser.add_argument("--testspath", "-t", type=str, metavar="TestsPath", default=None, help="The path to the tests assembly.")
 
 
     def build(self, silent = False):
         self.print_if_loud ("Running build...", silent)
         args = self.parser.parse_args()
         config_name = args.config
-        should_run_tests = args.tests
+        should_run_tests = args.runtests
+        sln_path = args.slnpath
+        tests_path = args.testspath
         self.print_if_loud("Configuration: " + config_name + "\n"
                             + "Should run tests?: " + str(should_run_tests),
                             silent)
 
-        result = self.run_nuget_restore(silent)        
+        if (sln_path == None):
+            self.exit_with_error_msg("Solution path not provided for build.", silent)
+
+        result = self.run_nuget_restore(sln_path, silent)        
         if (result.status != 0):
-            self.exit_with_error(result.status, silent)
+            self.exit_with_error_code(result.status, silent)
 
         exit_code = self.run_fody_cleaner()
         if (exit_code != 0):
-            self.exit_with_error(exit_code, silent)
+            self.exit_with_error_code(exit_code, silent)
 
-        result = self.run_msbuild(config_name, silent)
+        result = self.run_msbuild(sln_path, config_name, silent)
         if (result.status != 0):
-            self.exit_with_error(result.status, silent)
+            self.exit_with_error_code(result.status, silent)
 
         self.print_if_loud("Build was successful.", silent)
 
         if config_name == "Debug" and should_run_tests:
-            result = self.run_vstest(silent)
+            if (tests_path == None):
+                self.exit_with_error_msg("Tests path not provided for testing.", silent)
+            result = self.run_vstest(tests_path, silent)
             if (result.status != 0):
-                self.exit_with_error(result.status, silent)
+                self.exit_with_error_code(result.status, silent)
             self.print_if_loud("Tests run successfully.", silent)
         else:
             self.print_if_loud("No tests were run", silent)
 
 
-    def exit_with_error(self, error_int, silent = False):
+    def exit_with_error_code(self, error_int, silent = False):
         if (error_int != 0):
             self.print_if_loud("Exiting with error-code: " + str(error_int), silent)
             exit(error_int)
-        
+
+
+    def exit_with_error_msg(self, error_msg, silent = False):
+        self.print_if_loud("Exiting with error: " + error_msg, silent)
+        exit(1)
+
 
     def run_fody_cleaner(self, silent = False):
         self.print_linebreaks(4, silent)
@@ -66,16 +78,16 @@ class SlnBuilder:
         return fody_cleaner.clear_fody_refs()
 
 
-    def run_nuget_restore(self, silent = False):
+    def run_nuget_restore(self, sln_path, silent = False):
         self.print_linebreaks(4, silent)
         self.print_if_loud("Running nuget restore...", silent)
         args = ["nuget"]
         args.append("restore")
-        args.append(self.solution_path)
+        args.append(sln_path)
         return self.run_os_process(args, silent)
 
 
-    def run_msbuild(self, config_name, silent = False):
+    def run_msbuild(self, sln_path, config_name, silent = False):
         self.print_linebreaks(4, silent)
         self.print_if_loud("Building solution...", silent)
         args = []
@@ -85,17 +97,17 @@ class SlnBuilder:
             args.append(msbuild_location)
         else:
             args.append("msbuild")
-        args.append(self.solution_path)
+        args.append(sln_path)
         args.append("-p:Configuration=" + config_name)
         return self.run_os_process(args, silent)
 
 
-    def run_vstest(self, silent = False):
+    def run_vstest(self, tests_path, silent = False):
         self.print_linebreaks(4, silent)
         self.print_if_loud("Running .Net Framework tests...", silent)
         args = ["dotnet"]
         args.append("vstest")
-        args.append(self.tests_path)
+        args.append(tests_path)
         args.append("/Framework:.NETFramework,Version=v4.7.1")
         args.append("/InIsolation")
         args.append("/logger:trx")

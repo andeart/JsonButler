@@ -5,9 +5,9 @@ dotnet: 2.2.104
 python: 3.7
 mono: latest
 before_install:
-  - chmod a+x ./Tools/*
+  - chmod a+x ./tools/*
 install:
   - pip install -r requirements.txt
-  - nuget restore ./JsonButler/JsonButler.sln
+  - nuget restore "$TRAVIS_SOLUTION"
 script:
-  - python ./Tools/build.py -t
+  - python ./tools/build.py -s "$TRAVIS_SOLUTION" -r -t "$TESTS_PATH"
