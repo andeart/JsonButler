@@ -1,6 +1,7 @@
-from colorama import init, Fore, Back, Style
+import platform
 from enum import Enum
 
+from colorama import Back, Fore, Style, init
 
 
 class LogLevel(Enum):
@@ -13,15 +14,23 @@ class LogLevel(Enum):
 
 class Logger:
 
-    style_map = {LogLevel.INFO: Fore.WHITE,
-                LogLevel.WARNING: Fore.LIGHTYELLOW_EX,
-                LogLevel.ERROR: Fore.LIGHTRED_EX,
-                LogLevel.SUCCESS: Fore.LIGHTGREEN_EX}
+
+    style_map = {LogLevel.INFO: None}
+
 
     def __init__(self, owner = None):
         init()
         self.silent = False
         self.log(f"Logger initialised. Owner: {str(owner)}")
+        # Use different colours for Windows because it renders ANSI escape codes differently. More info at: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+        if (platform.system() == "Windows"):
+            self.Logger.style_map[LogLevel.WARNING] = Fore.LIGHTYELLOW_EX
+            self.style_map[LogLevel.ERROR] = Fore.LIGHTRED_EX
+            self.style_map[LogLevel.SUCCESS] = Fore.LIGHTGREEN_EX
+        else:
+            self.style_map[LogLevel.WARNING] = Fore.YELLOW
+            self.style_map[LogLevel.ERROR] = Fore.RED
+            self.style_map[LogLevel.SUCCESS] = Fore.GREEN
 
 
     def log(self, msg, log_level = LogLevel.INFO):
