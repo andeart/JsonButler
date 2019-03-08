@@ -32,8 +32,8 @@ class NetBuilder:
         sln_path = args.slnpath
         config_name = args.config
         
-        self.logger.log(f"Solution path: {sln_path}"+
-                        f"\nConfiguration: {config_name}",
+        self.logger.log(f"Solution path: {sln_path}"
+                        + f"\nConfiguration: {config_name}",
                         LogLevel.WARNING)
 
         if (sln_path == None): self.exit_with_error(1, "Solution path not provided for build.")

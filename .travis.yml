@@ -7,10 +7,8 @@ mono: latest
 before_install:
   - chmod a+x ./tools/*
 install:
-  - brew update
-  - brew upgrade pyenv
   - pip install -r requirements.txt
   - nuget restore "$TRAVIS_SOLUTION"
 script:
-  - python ./tools/netbuild.py -s "$TRAVIS_SOLUTION" -c "Debug"
-  - python ./tools/nettest.py -t "$TESTS_PATH"
+  - python3 ./tools/netbuild.py -s "$TRAVIS_SOLUTION" -c "Debug"
+  - python3 ./tools/nettest.py -t "$TESTS_PATH"
