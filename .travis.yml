@@ -7,6 +7,8 @@ mono: latest
 before_install:
   - chmod a+x ./tools/*
 install:
+  - brew update
+  - brew upgrade pyenv
   - pip install -r requirements.txt
   - nuget restore "$TRAVIS_SOLUTION"
 script:
