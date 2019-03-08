@@ -15,7 +15,7 @@ class LogLevel(Enum):
 class Logger:
 
 
-    style_map = {LogLevel.INFO: None}
+    style_map = {LogLevel.INFO: ""}
 
 
     def __init__(self, owner = None):
