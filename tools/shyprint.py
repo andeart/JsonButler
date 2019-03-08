@@ -24,13 +24,13 @@ class Logger:
         self.log(f"Logger initialised. Owner: {str(owner)}")
         # Use different colours for Windows because it renders ANSI escape codes differently. More info at: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
         if (platform.system() == "Windows"):
-            self.Logger.style_map[LogLevel.WARNING] = Fore.LIGHTYELLOW_EX
-            self.style_map[LogLevel.ERROR] = Fore.LIGHTRED_EX
-            self.style_map[LogLevel.SUCCESS] = Fore.LIGHTGREEN_EX
+            self.style_map[LogLevel.WARNING] = Fore.LIGHTYELLOW_EX + Style.BRIGHT
+            self.style_map[LogLevel.ERROR] = Fore.LIGHTRED_EX + Style.BRIGHT
+            self.style_map[LogLevel.SUCCESS] = Fore.LIGHTGREEN_EX + Style.BRIGHT
         else:
-            self.style_map[LogLevel.WARNING] = Fore.YELLOW
-            self.style_map[LogLevel.ERROR] = Fore.RED
-            self.style_map[LogLevel.SUCCESS] = Fore.GREEN
+            self.style_map[LogLevel.WARNING] = Fore.YELLOW + Style.BRIGHT
+            self.style_map[LogLevel.ERROR] = Fore.RED + Style.BRIGHT
+            self.style_map[LogLevel.SUCCESS] = Fore.GREEN + Style.BRIGHT
 
 
     def log(self, msg, log_level = LogLevel.INFO):
@@ -69,7 +69,9 @@ class Logger:
         print(Fore.RED + "RED")
         print(Fore.RESET + "RESET")
         print(Fore.WHITE + "WHITE")
-        print(Fore.YELLOW + Back.BLACK + "YELLOW")
+        print(Fore.YELLOW + "YELLOW")
+        for log_level in LogLevel:
+            print(self.style_map[log_level] + str(log_level) + Style.RESET_ALL)
 
         
 if __name__ == "__main__":
