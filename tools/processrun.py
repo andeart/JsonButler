@@ -7,9 +7,9 @@ from shyprint import Logger
 class ProcessRunner:
 
     def __init__(self, silent = False):        
-        self.logger = Logger(self)
-        self.logger.silent = silent
-        self.logger.log("ProcessRunner initialised.")
+        self.__logger = Logger(self)
+        self.__logger.silent = silent
+        self.__logger.log("ProcessRunner initialised.")
 
 
     def run_line(self, cmd_line):
@@ -22,7 +22,7 @@ class ProcessRunner:
         (output, error) = process.communicate()
         return_code = process.wait()
         output = str(output.decode("utf-8"))
-        self.logger.log("Command output:\n" + output + "\n"
+        self.__logger.log("Command output:\n" + output + "\n"
                         + "Command exit-status/return-code: " + str(return_code))
         result = SubprocessOutputStatus(output, return_code)
         return result
