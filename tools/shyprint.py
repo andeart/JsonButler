@@ -15,7 +15,7 @@ class LogLevel(Enum):
 class Logger:
 
 
-    style_map = {LogLevel.INFO: ""}
+    __style_map = {LogLevel.INFO: ""}
 
 
     def __init__(self, owner = None):
@@ -24,23 +24,23 @@ class Logger:
         self.log(f"Logger initialised. Owner: {str(owner)}")
         # Use different colours for Windows because it renders ANSI escape codes differently. More info at: https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
         if (platform.system() == "Windows"):
-            self.style_map[LogLevel.WARNING] = Fore.LIGHTYELLOW_EX + Style.BRIGHT
-            self.style_map[LogLevel.ERROR] = Fore.LIGHTRED_EX + Style.BRIGHT
-            self.style_map[LogLevel.SUCCESS] = Fore.LIGHTGREEN_EX + Style.BRIGHT
+            self.__style_map[LogLevel.WARNING] = Fore.LIGHTYELLOW_EX + Style.BRIGHT
+            self.__style_map[LogLevel.ERROR] = Fore.LIGHTRED_EX + Style.BRIGHT
+            self.__style_map[LogLevel.SUCCESS] = Fore.LIGHTGREEN_EX + Style.BRIGHT
         else:
-            self.style_map[LogLevel.WARNING] = Fore.YELLOW + Style.BRIGHT
-            self.style_map[LogLevel.ERROR] = Fore.RED + Style.BRIGHT
-            self.style_map[LogLevel.SUCCESS] = Fore.GREEN + Style.BRIGHT
+            self.__style_map[LogLevel.WARNING] = Fore.YELLOW + Style.BRIGHT
+            self.__style_map[LogLevel.ERROR] = Fore.RED + Style.BRIGHT
+            self.__style_map[LogLevel.SUCCESS] = Fore.GREEN + Style.BRIGHT
 
 
     def log(self, msg, log_level = LogLevel.INFO):
         if not self.silent:
-            print(self.style_map[log_level] + msg + Style.RESET_ALL)
+            print(self.__style_map[log_level] + msg + Style.RESET_ALL)
 
     
     def log(self, msg, log_level = LogLevel.INFO, overridden_silence = False):
         if not overridden_silence:
-            print(self.style_map[log_level] + msg + Style.RESET_ALL)
+            print(self.__style_map[log_level] + msg + Style.RESET_ALL)
 
 
     def log_linebreaks(self, count = 1):
@@ -71,7 +71,7 @@ class Logger:
         print(Fore.WHITE + "WHITE")
         print(Fore.YELLOW + "YELLOW")
         for log_level in LogLevel:
-            print(self.style_map[log_level] + str(log_level) + Style.RESET_ALL)
+            print(self.__style_map[log_level] + str(log_level) + Style.RESET_ALL)
 
         
 if __name__ == "__main__":
