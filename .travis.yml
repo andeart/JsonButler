@@ -12,11 +12,8 @@ env:
   matrix:
     - CONFIG_NAME=Release
     - CONFIG_NAME=Debug
-before_install:
-  - export PYTHONPATH=$LULLAPY_ROOT:$PYTHONPATH
-  - chmod -R a+x $LULLAPY_ROOT
 install:
-  - pip3 install -r requirements.txt
+  - pip3 install -e $LULLAPY_ROOT
 script:
   - python3 -m andeart.lullapy.netrestore -s "$TRAVIS_SOLUTION"
   - python3 -m andeart.lullapy.fodyclean -s "$TRAVIS_SOLUTION"
