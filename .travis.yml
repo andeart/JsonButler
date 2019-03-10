@@ -4,12 +4,21 @@ solution: ./JsonButler/JsonButler.sln
 dotnet: 2.2.104
 python: 3.7
 mono: latest
+env:
+  global:
+    - LULLAPY_ROOT=$TRAVIS_BUILD_DIR/lullapy
+    - TESTS_BIN=./JsonButler/JsonButler.Tests/bin
+    - TESTS_ASSEMBLY=Andeart.JsonButler.Tests.dll
+  matrix:
+    - CONFIG_NAME=Release
+    - CONFIG_NAME=Debug
 before_install:
-  - chmod a+x ./tools/*
+  - export PYTHONPATH=$LULLAPY_ROOT:$PYTHONPATH
+  - chmod -R a+x $LULLAPY_ROOT
 install:
   - pip3 install -r requirements.txt
 script:
-  - python3 ./tools/netrestore.py -s "$TRAVIS_SOLUTION"
-  - python3 ./tools/fodyclean.py -s "$TRAVIS_SOLUTION"
-  - python3 ./tools/netbuild.py -s "$TRAVIS_SOLUTION" -c "Debug"
-  - python3 ./tools/nettest.py -t "$TESTS_PATH"
+  - python3 -m andeart.lullapy.netrestore -s "$TRAVIS_SOLUTION"
+  - python3 -m andeart.lullapy.fodyclean -s "$TRAVIS_SOLUTION"
+  - python3 -m andeart.lullapy.netbuild -s "$TRAVIS_SOLUTION" -c "$CONFIG_NAME"
+  - python3 -m andeart.lullapy.nettest -t "$TESTS_BIN/$CONFIG_NAME/$TESTS_ASSEMBLY"
