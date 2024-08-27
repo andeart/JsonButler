@@ -1,7 +1,7 @@
 # [![JsonButler logo][logo]](#) JsonButler
 
-[![nuget-release](https://img.shields.io/nuget/v/Andeart.JsonButler.svg)](https://www.nuget.org/packages/Andeart.JsonButler) [![nuget-dls](https://img.shields.io/nuget/dt/Andeart.JsonButler.svg)](https://www.nuget.org/packages/Andeart.JsonButler)<br />
-[![github-release](https://img.shields.io/github/release/andeart/Jsonbutler.svg)](https://github.com/andeart/JsonButler/releases/latest) [![github-dls](https://img.shields.io/github/downloads/andeart/Jsonbutler/total.svg)](https://github.com/andeart/JsonButler/releases/latest)<br/>
+[![nuget-release](https://img.shields.io/nuget/v/Andeart.JsonButler.svg?logo=nuget&logoSize=auto)](https://www.nuget.org/packages/Andeart.JsonButler) [![nuget-dls](https://img.shields.io/nuget/dt/Andeart.JsonButler.svg?logo=nuget&logoSize=auto)](https://www.nuget.org/packages/Andeart.JsonButler)<br />
+[![github-release](https://img.shields.io/github/release/andeart/Jsonbutler.svg?logo=github&logoSize=auto)](https://github.com/andeart/JsonButler/releases/latest) [![github-dls](https://img.shields.io/github/downloads/andeart/Jsonbutler/total.svg?logo=github&logoSize=auto)](https://github.com/andeart/JsonButler/releases/latest)<br/>
 
 **JsonButler is now available as a Visual Studio extension. [Check it out here][jsonbutler ide]!**
 
